@@ -1,0 +1,7 @@
+ssh tony@stapp01               #if you're asked to use the first server
+sudo mkdir -p /scripts
+sudo vi /scripts/beta_backup.sh
+sudo chmod +x /scripts/beta_backup.sh
+ssh-keygen -t rsa
+ssh-copy-id clint@stbkp01
+/scripts/beta_backup.sh
