@@ -11,4 +11,7 @@ sudo chmod -R 755 /var/www/html/beta # give permission to steve
 ssh-keygen -t rsa -b 2048
 ssh-copy-id clint@stbkp01
 
+#On Backup Server
+cd / ls -la sudo chown clint:clint /backup/ # here backup server password needed
+
 sudo /scripts/beta_backup.sh
