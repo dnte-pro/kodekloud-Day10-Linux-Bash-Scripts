@@ -1,7 +1,14 @@
-ssh tony@stapp01               #if you're asked to use the first server
-sudo mkdir -p /scripts
-sudo vi /scripts/beta_backup.sh
-sudo chmod +x /scripts/beta_backup.sh
-ssh-keygen -t rsa
+sh steve@stapp02 # here app server 2 password needed
+sudo mkdir -p /scripts # if not available
+sudo sudo vi /scripts/beta_backup.sh
+sudo chown steve:steve /scripts/ # give ownership to steve
+sudo chown steve:steve /scripts/beta_backup.sh # give ownership to steve
+sudo chmod +x /scripts/beta_backup.sh # give execute permission & just copy paste
+sudo mkdir -p /var/www/html/beta # if not available
+sudo chown steve:steve /var/www/html/beta # give ownership to steve
+sudo chmod -R 755 /var/www/html/beta # give permission to steve
+
+ssh-keygen -t rsa -b 2048
 ssh-copy-id clint@stbkp01
-/scripts/beta_backup.sh
+
+sudo /scripts/beta_backup.sh
