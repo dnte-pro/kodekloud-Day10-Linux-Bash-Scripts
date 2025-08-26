@@ -1,17 +1,17 @@
-sh steve@stapp02 # here app server 2 password needed
-sudo mkdir -p /scripts # if not available
-sudo sudo vi /scripts/beta_backup.sh
-sudo chown steve:steve /scripts/ # give ownership to steve
-sudo chown steve:steve /scripts/beta_backup.sh # give ownership to steve
-sudo chmod +x /scripts/beta_backup.sh # give execute permission & just copy paste
-sudo mkdir -p /var/www/html/beta # if not available
-sudo chown steve:steve /var/www/html/beta # give ownership to steve
-sudo chmod -R 755 /var/www/html/beta # give permission to steve
+ssh steve@stapp02
+sudo yum install zip -y
 
-ssh-keygen -t rsa -b 2048
-ssh-copy-id clint@stbkp01
+ssh-keygen -t rsa # Generate a new SSH key pair
+ssh-copy-id clint@stbkp01 # Copy the SSH public key to the remote server
 
-#On Backup Server
-cd / ls -la sudo chown clint:clint /backup/ # here backup server password needed
+sudo mkdir -p /scripts/
+sudo vi /scripts/official_backup.sh
+sudo chmod +x /scripts/official_backup.sh # Make the script executable
 
-sudo /scripts/beta_backup.sh
+sudo /scripts/official_backup.sh
+
+
+## Verify the backup from a new terminal window
+
+ssh clint@stbkp01
+ls -l /backup/xfusioncorp_official.zip
